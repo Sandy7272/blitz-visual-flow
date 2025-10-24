@@ -1,13 +1,20 @@
 import { motion } from "framer-motion";
-import { ShoppingBag, Package, Globe, Image, Code, Video } from "lucide-react";
+import { Code, Video, Image } from "lucide-react";
+
+import shopifyLogo from "@/assets/shopify.svg";
+import amazonLogo from "@/assets/amazon.svg";
+import ebayLogo from "@/assets/ebay.svg";
+import etsyLogo from "@/assets/etsy.svg";
+import woocommerceLogo from "@/assets/woocommerce.svg";
+import instagramLogo from "@/assets/instagram.svg";
 
 const platforms = [
-  { name: "Shopify", icon: ShoppingBag },
-  { name: "Amazon", icon: Package },
-  { name: "eBay", icon: Globe },
-  { name: "Etsy", icon: ShoppingBag },
-  { name: "WooCommerce", icon: Package },
-  { name: "Instagram", icon: Image },
+  { name: "Shopify", logo: shopifyLogo },
+  { name: "Amazon", logo: amazonLogo },
+  { name: "eBay", logo: ebayLogo },
+  { name: "Etsy", logo: etsyLogo },
+  { name: "WooCommerce", logo: woocommerceLogo },
+  { name: "Instagram", logo: instagramLogo },
 ];
 
 const exportFormats = [
@@ -47,7 +54,6 @@ const Marketplaces = () => {
             </p>
             <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
               {platforms.map((platform, index) => {
-                const Icon = platform.icon;
                 return (
                   <motion.div
                     key={platform.name}
@@ -56,10 +62,9 @@ const Marketplaces = () => {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className="glass-card rounded-xl p-6 flex flex-col items-center justify-center gap-3 transition-smooth hover:border-primary/30"
+                    className="glass-card rounded-xl p-6 flex flex-col items-center justify-center gap-3 transition-smooth hover:border-primary/30 bg-white"
                   >
-                    <Icon className="w-8 h-8 text-primary" />
-                    <span className="text-sm font-medium text-center">{platform.name}</span>
+                    <img src={platform.logo} alt={platform.name} className="w-12 h-12" />
                   </motion.div>
                 );
               })}

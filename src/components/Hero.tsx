@@ -30,7 +30,7 @@ const Hero = () => {
           className="text-center max-w-5xl mx-auto"
         >
           <motion.h1 
-            className="text-6xl md:text-8xl font-display font-bold mb-6 leading-tight"
+            className="text-6xl md:text-6xl font-display font-bold mb-6 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}

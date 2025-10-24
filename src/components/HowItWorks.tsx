@@ -1,16 +1,16 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Upload, Sparkles, Image as ImageIcon, Type, Box } from "lucide-react";
 import { useRef } from "react";
-import uploadImage from "@/assets/step-1-upload.jpg";
+import uploadImage from "@/assets/step-1-upload.gif";
 import aiProcessImage from "@/assets/step-2-ai-process.jpg";
 import lifestyleImage from "@/assets/step-3-lifestyle.jpg";
 import descriptionImage from "@/assets/step-4-description.jpg";
-import modelImage from "@/assets/step-5-3d-model.jpg";
+import modelImage from "@/assets/step-5-3d-model.png";
 
 const steps = [
   {
     icon: Upload,
-    title: "Upload Your Video",
+    title: "Record Video",
     description: "Record a 30-second video of your product from multiple angles. Our AI does the rest.",
     image: uploadImage,
   },
