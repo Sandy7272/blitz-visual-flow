@@ -8,54 +8,56 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 222 47% 4%;
-    --foreground: 210 40% 98%;
+    /* MetashopAI Brand Colors */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
 
-    --card: 222 40% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222 40% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 160 84% 39%;
-    --primary-foreground: 222 47% 4%;
+    --primary: 154 100% 59%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 193 82% 50%;
-    --secondary-foreground: 222 47% 4%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 271 91% 65%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 154 100% 59%;
+    --accent-foreground: 0 0% 4%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 4 90% 58%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 160 84% 39%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 154 100% 59%;
 
     --radius: 1rem;
     
-    /* Neon gradient colors */
-    --emerald: 160 84% 39%;
-    --cyan: 193 82% 50%;
-    --violet: 271 91% 65%;
+    /* Brand specific colors */
+    --neon-green: 154 100% 59%;
+    --dark-bg: 0 0% 4%;
+    --dark-card: 0 0% 7%;
+    --grey-light: 0 0% 70%;
+    --warning: 45 100% 51%;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--emerald)), hsl(var(--cyan)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--cyan)), hsl(var(--violet)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--emerald)), hsl(var(--violet)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--neon-green)), hsl(154 100% 70%));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(0 0% 6%));
     
-    /* Glassmorphism */
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    /* Glassmorphism - more subtle */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(45, 255, 167, 0.1);
     
-    /* Shadows */
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
-    --shadow-glow-lg: 0 0 80px hsl(var(--primary) / 0.4);
-    --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.5);
+    /* Shadows - more subtle */
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.15);
+    --shadow-glow-lg: 0 0 50px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.3);
     
     /* Animation */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -90,7 +92,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Albert Sans', 'Inter', system-ui, -apple-system, sans-serif;
   }
   
   html {

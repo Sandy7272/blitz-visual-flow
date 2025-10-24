@@ -1,25 +1,25 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
-import heroGradient from "@/assets/hero-gradient.jpg";
+import { ArrowRight } from "lucide-react";
+import heroImage from "@/assets/hero-mobile-recording.jpg";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Image */}
+      <div className="absolute inset-0">
         <img 
-          src={heroGradient} 
-          alt="" 
-          className="w-full h-full object-cover opacity-60"
+          src={heroImage} 
+          alt="Mobile recording product illustration" 
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/30 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
       </div>
 
-      {/* Floating gradient orbs */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "4s" }} />
+      {/* Floating orbs - subtle */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
@@ -30,7 +30,7 @@ const Hero = () => {
           className="text-center max-w-5xl mx-auto"
         >
           <motion.h1 
-            className="text-6xl md:text-8xl font-bold mb-6 leading-tight"
+            className="text-6xl md:text-8xl font-display font-bold mb-6 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -57,10 +57,11 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <Button size="lg" className="text-lg px-8 py-6 glow-effect">
+            <Button size="lg" className="text-lg px-10 group">
               Start Free Photoshoot
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 glass-card border-primary/30">
+            <Button size="lg" variant="outline" className="text-lg px-10">
               <Play className="mr-2 h-5 w-5" />
               Watch Demo
             </Button>

@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Handle scroll effect
   if (typeof window !== "undefined") {
@@ -18,36 +19,69 @@ const Navigation = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-card border-b border-border/50" : ""
+        isScrolled ? "glass-card border-b border-border/50" : "bg-background/50 backdrop-blur-sm"
       }`}
     >
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary glow-effect" />
-            <span className="text-2xl font-bold">Blitz AI</span>
-          </div>
+        <div className="flex items-center justify-between h-16">
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="text-xl font-heading font-bold gradient-text cursor-pointer"
+          >
+            MetashopAI
+          </motion.div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm hover:text-primary transition-colors">Features</a>
-            <a href="#pricing" className="text-sm hover:text-primary transition-colors">Pricing</a>
-            <a href="#demo" className="text-sm hover:text-primary transition-colors">Demo</a>
-            <a href="#about" className="text-sm hover:text-primary transition-colors">About</a>
+            {["Features", "How it Works", "Pricing"].map((item) => (
+              <motion.a
+                key={item}
+                href={`#${item.toLowerCase().replace(" ", "-")}`}
+                whileHover={{ scale: 1.05 }}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {item}
+              </motion.a>
+            ))}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
             <Button variant="ghost" size="sm">Sign In</Button>
-            <Button size="sm" className="glow-effect">Get Started</Button>
+            <Button size="sm">Get Started</Button>
           </div>
 
-          {/* Mobile Menu */}
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-6 w-6" />
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
+
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden pb-4 space-y-3"
+          >
+            {["Features", "How it Works", "Pricing"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(" ", "-")}`}
+                className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+            <div className="flex flex-col gap-2 pt-2">
+              <Button variant="ghost" size="sm" className="w-full">Sign In</Button>
+              <Button size="sm" className="w-full">Get Started</Button>
+            </div>
+          </motion.div>
+        )}
       </div>
     </motion.nav>
   );
