@@ -32,16 +32,26 @@ const Navigation = () => {
           </motion.div>
 
           <div className="hidden md:flex items-center gap-8">
-            {["Features", "How it Works", "Pricing"].map((item) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
-                whileHover={{ scale: 1.05 }}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {item}
-              </motion.a>
-            ))}
+            {["Features", "How it Works", "Pricing"].map((item) => {
+              const id = item.toLowerCase().replace(" ", "-");
+              return (
+                <motion.a
+                  key={item}
+                  href={`#${id}`}
+                  whileHover={{ scale: 1.05 }}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetElement = document.getElementById(id);
+                    if (targetElement) {
+                      targetElement.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  {item}
+                </motion.a>
+              );
+            })}
           </div>
 
           <div className="hidden md:flex items-center gap-3">
@@ -66,16 +76,26 @@ const Navigation = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden pb-4 space-y-3"
           >
-            {["Features", "How it Works", "Pricing"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
-                className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </a>
-            ))}
+            {["Features", "How it Works", "Pricing"].map((item) => {
+              const id = item.toLowerCase().replace(" ", "-");
+              return (
+                <a
+                  key={item}
+                  href={`#${id}`}
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetElement = document.getElementById(id);
+                    if (targetElement) {
+                      targetElement.scrollIntoView({ behavior: "smooth" });
+                    }
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  {item}
+                </a>
+              );
+            })}
             <div className="flex flex-col gap-2 pt-2">
               <Button variant="ghost" size="sm" className="w-full">Sign In</Button>
               <Button size="sm" variant="outline" className="w-full">Get Started</Button>

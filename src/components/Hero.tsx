@@ -53,7 +53,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            One 30-Second Video.{" "}
+            One 30-Second Video.
+            <br />
             <span className="gradient-text">
               A Complete Product Listing.
             </span>
@@ -85,35 +86,6 @@ const Hero = () => {
             </Button>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-sm text-gray-400 mb-16"
-          >
-            Trusted by 10,000+ e-commerce brands worldwide
-          </motion.p>
-
-          {/* Stats */}
-          <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-3 gap-12 pt-8 max-w-3xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
-          >
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-black gradient-text mb-2">30s</div>
-              <div className="text-sm text-gray-400 font-medium">Processing Time</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-black gradient-text mb-2">10+</div>
-              <div className="text-sm text-gray-400 font-medium">Assets Generated</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-black gradient-text mb-2">99%</div>
-              <div className="text-sm text-gray-400 font-medium">Accuracy Rate</div>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
 

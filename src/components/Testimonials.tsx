@@ -85,21 +85,6 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Partner logos */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-          <p className="text-sm text-muted-foreground mb-8">Trusted by teams from</p>
-          <div className="flex flex-wrap justify-center items-center gap-12 opacity-50">
-            <span className="text-2xl font-bold">Shopify</span>
-            <span className="text-2xl font-bold">Etsy</span>
-            <span className="text-2xl font-bold">Amazon</span>
-            <span className="text-2xl font-bold">eBay</span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

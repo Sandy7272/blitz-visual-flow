@@ -41,7 +41,7 @@ const Partners = () => {
               <img 
                 src={partner.logo} 
                 alt={partner.name}
-                className="h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                className="h-10 md:h-12 w-auto object-contain transition-opacity"
               />
             </motion.div>
           ))}
