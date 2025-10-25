@@ -125,4 +125,8 @@ All colors MUST be HSL.
   .transition-smooth {
     transition: var(--transition-smooth);
   }
+  
+  .text-readable {
+    color: hsl(0 0% 80%);
+  }
 }
