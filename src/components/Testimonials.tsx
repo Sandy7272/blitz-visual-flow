@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Star, TrendingUp, Award } from "lucide-react";
 import productStudio from "@/assets/product-studio.jpg";
-import productLifestyle from "@/assets/product-lifestyle.jpg";
+import productLifestyle from "@/assets/product_lifestyle_chair.png";
 
 const testimonials = [
   {

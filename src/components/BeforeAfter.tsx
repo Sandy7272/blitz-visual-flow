@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import productStudio from "@/assets/product-3d.png";
-import productLifestyle from "@/assets/product-lifestyle.jpg";
+import productLifestyle from "@/assets/product_lifestyle_chair.png";
 import heroMobile from "@/assets/hero-mobile-recording.jpg";
 import beforeImage from "@/assets/before.jpg";
 import afterImage from "@/assets/after.png";
@@ -144,11 +144,12 @@ const BeforeAfter = () => {
               whileHover={{ y: -8, scale: 1.02 }}
               className="glass-card rounded-2xl p-6 hover:border-primary/30 transition-all"
             >
-              <img
-                src={productLifestyle}
-                alt="3D model"
-                className="w-full h-56 object-cover rounded-xl mb-4"
-              />
+              <iframe
+                src="https://mimnsi.github.io/interactive_scenes_3d_estate_2/demo/Phoenix_Royal_Yellow.html"
+                title="3D Model"
+                className="w-full h-56 rounded-xl mb-4"
+                allowFullScreen
+              ></iframe>
               <h4 className="text-xl font-bold mb-2">3D Models</h4>
               <p className="text-sm text-muted-foreground">
                 Interactive models for AR & 360° views

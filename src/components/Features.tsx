@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Camera, Sparkles, Box, Type, Zap, Code, Palette, Cloud } from "lucide-react";
+import productLifestyleImage from "@/assets/product_lifestyle_chair.png";
 
 const features = [
   {
@@ -21,6 +22,8 @@ const features = [
     title: "3D Model Export",
     description: "Interactive models for AR & 360°",
     size: "medium",
+    link: "https://mimnsi.github.io/interactive_scenes_3d_estate_2/demo/Phoenix_Royal_Yellow.html",
+    image: productLifestyleImage,
     gradient: "from-primary/10 to-primary/5",
   },
   {
@@ -94,30 +97,35 @@ const Features = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05, duration: 0.5 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className={`${colSpan} ${rowSpan} glass-card rounded-3xl p-8 hover:border-primary/30 transition-all group cursor-pointer`}
+                  className={`${colSpan} ${rowSpan} glass-card rounded-3xl p-8 hover:border-primary/30 transition-all group ${feature.link ? "" : "cursor-pointer"}`}
                 >
-                  <div className={`w-full h-full flex flex-col ${feature.size === "large" ? "justify-between" : "justify-start"}`}>
-                    <div>
-                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                        <Icon className="w-7 h-7 text-primary" />
+                  <a href={feature.link} target="_blank" rel="noopener noreferrer" className="w-full h-full flex flex-col">
+                    <div className={`w-full h-full flex flex-col ${feature.size === "large" ? "justify-between" : "justify-start"}`}>
+                      {feature.image && (
+                        <img src={feature.image} alt={feature.title} className="w-full h-56 object-cover rounded-xl mb-4" />
+                      )}
+                      <div>
+                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                          <Icon className="w-7 h-7 text-primary" />
+                        </div>
+                        
+                        <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                          {feature.title}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {feature.description}
+                        </p>
                       </div>
-                      
-                      <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                        {feature.title}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {feature.description}
-                      </p>
-                    </div>
 
-                    {feature.size === "large" && (
-                      <div className="mt-8 pt-6 border-t border-border/50">
-                        <span className="text-sm text-primary font-semibold group-hover:underline">
-                          Learn more →
-                        </span>
-                      </div>
-                    )}
-                  </div>
+                      {feature.size === "large" && (
+                        <div className="mt-8 pt-6 border-t border-border/50">
+                          <span className="text-sm text-primary font-semibold group-hover:underline">
+                            Learn more →
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </a>
                 </motion.div>
               );
             })}
