@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Star, TrendingUp, Award } from "lucide-react";
 import productStudio from "@/assets/product-studio.jpg";
 import productLifestyle from "@/assets/product-lifestyle.jpg";
-import product3d from "@/assets/product-3d.jpg";
 
 const testimonials = [
   {
@@ -36,7 +35,7 @@ const testimonials = [
       "The 3D models are game-changing for our AR features. Our conversion rate increased by 40% after implementing Blitz.",
     rating: 5,
     results: "40% higher conversions",
-    image: product3d,
+    image: productLifestyle,
   },
 ];
 

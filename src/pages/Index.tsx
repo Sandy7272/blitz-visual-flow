@@ -1,7 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import TrustedByBar from "@/components/TrustedByBar";
-import HowItWorks from "@/components/HowItWorks";
 import BeforeAfter from "@/components/BeforeAfter";
 import Features from "@/components/Features";
 import MarketCategories from "@/components/MarketCategories";
@@ -18,7 +17,6 @@ const Index = () => {
       <Navigation />
       <Hero />
       <TrustedByBar />
-      <HowItWorks />
       <BeforeAfter />
       <Features />
       <MarketCategories />

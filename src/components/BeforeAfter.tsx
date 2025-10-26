@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
-import productStudio from "@/assets/product-studio.jpg";
+import productStudio from "@/assets/product-3d.png";
 import productLifestyle from "@/assets/product-lifestyle.jpg";
-import product3d from "@/assets/product-3d.jpg";
 import heroMobile from "@/assets/hero-mobile-recording.jpg";
+import beforeImage from "@/assets/before.jpg";
+import afterImage from "@/assets/after.png";
+import descriptionImage from "@/assets/description.png";
 
 const BeforeAfter = () => {
   return (
@@ -48,7 +50,7 @@ const BeforeAfter = () => {
                 </div>
                 
                 <img
-                  src={heroMobile}
+                  src={beforeImage}
                   alt="Raw video frame"
                   className="w-full h-80 object-cover rounded-2xl mb-6"
                 />
@@ -84,7 +86,7 @@ const BeforeAfter = () => {
                 </div>
                 
                 <img
-                  src={productStudio}
+                  src={afterImage}
                   alt="AI-generated studio photo"
                   className="w-full h-80 object-cover rounded-2xl mb-6"
                 />
@@ -143,7 +145,7 @@ const BeforeAfter = () => {
               className="glass-card rounded-2xl p-6 hover:border-primary/30 transition-all"
             >
               <img
-                src={product3d}
+                src={productLifestyle}
                 alt="3D model"
                 className="w-full h-56 object-cover rounded-xl mb-4"
               />
@@ -157,14 +159,11 @@ const BeforeAfter = () => {
               whileHover={{ y: -8, scale: 1.02 }}
               className="glass-card rounded-2xl p-6 hover:border-primary/30 transition-all"
             >
-              <div className="w-full h-56 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl mb-4 flex items-center justify-center p-6">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">✨</div>
-                  <p className="font-mono text-sm text-muted-foreground">
-                    SEO-optimized product descriptions & metadata
-                  </p>
-                </div>
-              </div>
+              <img
+                src={descriptionImage}
+                alt="AI descriptions"
+                className="w-full h-56 object-cover rounded-xl mb-4"
+              />
               <h4 className="text-xl font-bold mb-2">AI Descriptions</h4>
               <p className="text-sm text-muted-foreground">
                 Search-optimized copy that converts

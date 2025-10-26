@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import MetaShopLogo from "@/assets/MetaShopLogo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,13 +27,13 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="text-xl font-heading font-bold gradient-text cursor-pointer"
+            className="cursor-pointer"
           >
-            MetashopAI
+            <img src={MetaShopLogo} alt="MetashopAI Logo" className="h-8 w-auto" />
           </motion.div>
 
           <div className="hidden md:flex items-center gap-8">
-            {["Features", "How it Works", "Pricing"].map((item) => {
+            {["Features", "Pricing"].map((item) => {
               const id = item.toLowerCase().replace(" ", "-");
               return (
                 <motion.a
@@ -76,7 +77,7 @@ const Navigation = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden pb-4 space-y-3"
           >
-            {["Features", "How it Works", "Pricing"].map((item) => {
+            {["Features", "Pricing"].map((item) => {
               const id = item.toLowerCase().replace(" ", "-");
               return (
                 <a
