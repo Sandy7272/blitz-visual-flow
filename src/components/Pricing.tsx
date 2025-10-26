@@ -62,14 +62,27 @@ const Pricing = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
             Simple, <span className="gradient-text">Transparent</span> Pricing
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             Choose the perfect plan for your business. All plans include a 14-day free trial.
           </p>
+
+          {/* Trust badges */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex items-center justify-center gap-6 flex-wrap"
+          >
+            <span className="text-sm text-muted-foreground">✓ No credit card required</span>
+            <span className="text-sm text-muted-foreground">✓ 14-day money-back guarantee</span>
+            <span className="text-sm text-muted-foreground">✓ Cancel anytime</span>
+          </motion.div>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">

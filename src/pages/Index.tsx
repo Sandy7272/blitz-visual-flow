@@ -1,11 +1,14 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import Partners from "@/components/Partners";
-import Marketplaces from "@/components/Marketplaces";
+import TrustedByBar from "@/components/TrustedByBar";
 import HowItWorks from "@/components/HowItWorks";
-import AIDemo from "@/components/AIDemo";
+import BeforeAfter from "@/components/BeforeAfter";
+import Features from "@/components/Features";
+import MarketCategories from "@/components/MarketCategories";
+import WorkflowVisualization from "@/components/WorkflowVisualization";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -14,12 +17,15 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
-      <Partners />
-      <Marketplaces />
+      <TrustedByBar />
       <HowItWorks />
-      <AIDemo />
+      <BeforeAfter />
+      <Features />
+      <MarketCategories />
+      <WorkflowVisualization />
       <Pricing />
       <Testimonials />
+      <FAQ />
       <FinalCTA />
       <Footer />
     </div>

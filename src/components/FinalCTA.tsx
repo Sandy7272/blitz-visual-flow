@@ -27,7 +27,7 @@ const FinalCTA = () => {
               transition={{ delay: 0.2 }}
               className="text-5xl md:text-7xl font-bold mb-6"
             >
-              Ready to <span className="gradient-text">Create?</span>
+              Transform Your Product <span className="gradient-text">Videos Today</span>
             </motion.h2>
 
             <motion.p
@@ -37,8 +37,7 @@ const FinalCTA = () => {
               transition={{ delay: 0.3 }}
               className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto"
             >
-              Start transforming your product videos into professional assets today. 
-              No credit card required for your free trial.
+              Join 10,000+ brands creating studio-quality assets in minutes, not weeks.
             </motion.p>
 
             <motion.div
@@ -46,12 +45,24 @@ const FinalCTA = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              whileHover={{ scale: 1.05 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <Button size="lg" className="text-xl px-12 py-8 glow-effect group">
-                Get Started Free
-                <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-2 transition-transform" />
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg" className="text-xl px-12 py-8 glow-effect group">
+                  Start Free Trial
+                  <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-2 transition-transform" />
+                </Button>
+              </motion.div>
+              
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="text-xl px-12 py-8"
+                >
+                  Book a Demo
+                </Button>
+              </motion.div>
             </motion.div>
 
             <motion.p
@@ -61,8 +72,21 @@ const FinalCTA = () => {
               transition={{ delay: 0.6 }}
               className="mt-8 text-sm text-muted-foreground"
             >
-              Join 10,000+ brands already creating with Blitz AI
+              No credit card required • 14-day free trial • Cancel anytime
             </motion.p>
+
+            {/* Trust badges */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7 }}
+              className="flex items-center justify-center gap-6 mt-8 flex-wrap opacity-60"
+            >
+              <span className="text-xs">🔒 SOC 2 Certified</span>
+              <span className="text-xs">🛡️ GDPR Compliant</span>
+              <span className="text-xs">⚡ 99.9% Uptime</span>
+            </motion.div>
           </div>
         </motion.div>
       </div>
