@@ -129,4 +129,39 @@ All colors MUST be HSL.
   .text-readable {
     color: hsl(0 0% 80%);
   }
+  
+  /* Premium Category Cards */
+  .category-card-premium {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(45, 255, 167, 0.1);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .image-overlay-gradient {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(10, 10, 10, 0.3) 40%,
+      rgba(10, 10, 10, 0.9) 100%
+    );
+  }
+  
+  .glass-icon-badge {
+    background: rgba(45, 255, 167, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(45, 255, 167, 0.3);
+  }
+  
+  .upload-placeholder-dashed {
+    border: 2px dashed rgba(45, 255, 167, 0.4);
+    background: rgba(45, 255, 167, 0.05);
+    backdrop-filter: blur(10px);
+  }
 }
