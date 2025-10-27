@@ -1,8 +1,18 @@
 import { motion } from "framer-motion";
+import type { ComponentType, SVGProps } from "react";
 import { Camera, Sparkles, Box, Type, Zap, Code, Palette, Cloud } from "lucide-react";
 import productLifestyleImage from "@/assets/product_lifestyle_chair.png";
+interface Feature {
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  title: string;
+  description: string;
+  size: string;
+  gradient: string;
+  image?: string;
+  link?: string;
+}
 
-const features = [
+const features: Feature[] = [
   {
     icon: Camera,
     title: "AI Studio Photography",
@@ -10,30 +20,14 @@ const features = [
     size: "large",
     gradient: "from-primary/10 to-primary/5",
   },
-  {
-    icon: Sparkles,
-    title: "Lifestyle Scene Generation",
-    description: "Place your product in any environment",
-    size: "medium",
-    gradient: "from-accent/10 to-accent/5",
-  },
-  {
+    {
     icon: Box,
     title: "3D Model Export",
     description: "Interactive models for AR & 360°",
     size: "medium",
-    link: "https://mimnsi.github.io/interactive_scenes_3d_estate_2/demo/Phoenix_Royal_Yellow.html",
-    image: productLifestyleImage,
     gradient: "from-primary/10 to-primary/5",
   },
-  {
-    icon: Type,
-    title: "SEO Product Descriptions",
-    description: "Optimized for search & conversions",
-    size: "large",
-    gradient: "from-accent/10 to-accent/5",
-  },
-  {
+   {
     icon: Zap,
     title: "Batch Processing",
     description: "100+ products per hour",
@@ -41,9 +35,30 @@ const features = [
     gradient: "from-primary/10 to-primary/5",
   },
   {
+    icon: Type,
+    title: "SEO Product Descriptions",
+    description: "Optimized for search & conversions",
+    size: "small",
+    gradient: "from-accent/10 to-accent/5",
+  },
+  {
+    icon: Sparkles,
+    title: "Lifestyle Scene Generation",
+    description: "Place your product in any environment",
+    size: "large",
+    gradient: "from-accent/10 to-accent/5",
+  },
+  {
     icon: Cloud,
     title: "Cloud-Powered Speed",
     description: "Results in under 2 minutes",
+    size: "small",
+    gradient: "from-accent/10 to-accent/5",
+  },
+   {
+    icon: Palette,
+    title: "Custom Branding",
+    description: "Match your brand aesthetic",
     size: "small",
     gradient: "from-accent/10 to-accent/5",
   },
@@ -54,13 +69,7 @@ const features = [
     size: "medium",
     gradient: "from-primary/10 to-primary/5",
   },
-  {
-    icon: Palette,
-    title: "Custom Branding",
-    description: "Match your brand aesthetic",
-    size: "small",
-    gradient: "from-accent/10 to-accent/5",
-  },
+
 ];
 
 const Features = () => {
