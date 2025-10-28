@@ -1,69 +1,71 @@
-import { motion } from "framer-motion";
-import { Sofa, Shirt, Smartphone, Diamond, Coffee, Palette, Upload, Sparkles } from "lucide-react";
+import { motion, useAnimation } from "framer-motion";
+import { Sofa, Shirt, Smartphone, Diamond, Coffee, Car } from "lucide-react";
 import chair1 from "@/assets/chair_lifestyle1.jpg";
 import chair3 from "@/assets/chair_lifestyle3.jpg";
 import asset1 from "@/assets/1.jpg";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef, useState } from "react";
 
 const categories = [
   {
     icon: Sofa,
     name: "Furniture & Home Decor",
     examples: ["Tables", "Chairs", "Lamps"],
-    useCase: "Create lifestyle renders in any room",
+    description: "Create lifestyle renders in any room",
     image: chair1,
-    uploadPlaceholder: "Upload furniture photo",
-    sampleOutput: chair1,
+    inputImage: chair1,
   },
   {
     icon: Shirt,
     name: "Fashion & Apparel",
     examples: ["Clothing", "Shoes", "Bags"],
-    useCase: "Model clothing without photoshoots",
+    description: "Model clothing without photoshoots",
     image: chair3,
-    uploadPlaceholder: "Upload garment photo",
-    sampleOutput: chair3,
+    inputImage: chair3,
   },
   {
     icon: Smartphone,
     name: "Electronics & Gadgets",
     examples: ["Phones", "Laptops", "Cameras"],
-    useCase: "Studio-quality tech photography",
+    description: "Studio-quality tech photography",
     image: asset1,
-    uploadPlaceholder: "Upload device photo",
-    sampleOutput: asset1,
+    inputImage: asset1,
   },
   {
     icon: Diamond,
     name: "Jewelry & Accessories",
     examples: ["Rings", "Watches", "Necklaces"],
-    useCase: "Macro detail shots & lifestyle scenes",
+    description: "Macro detail shots & lifestyle scenes",
     image: chair1,
-    uploadPlaceholder: "Upload jewelry photo",
-    sampleOutput: chair1,
+    inputImage: chair1,
   },
   {
     icon: Coffee,
-    name: "Food & Beverage",
+    name: "Food & Beverages",
     examples: ["Packaged", "Drinks", "Snacks"],
-    useCase: "Appetizing product photography",
+    description: "Appetizing product photography",
     image: chair3,
-    uploadPlaceholder: "Upload food photo",
-    sampleOutput: chair3,
+    inputImage: chair3,
   },
   {
-    icon: Palette,
-    name: "Crafts & Handmade",
-    examples: ["Art", "Pottery", "Decor"],
-    useCase: "Showcase your creations professionally",
+    icon: Car,
+    name: "Automotive & Vehicles",
+    examples: ["Cars", "Bikes", "Parts"],
+    description: "Professional automotive photography",
     image: asset1,
-    uploadPlaceholder: "Upload craft photo",
-    sampleOutput: asset1,
+    inputImage: asset1,
   },
 ];
 
 const MarketCategories = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const autoplayRef = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
+  );
+
   return (
-    <section className="py-32 bg-gradient-to-b from-background via-card/30 to-background">
+    <section className="py-32 bg-gradient-to-b from-background via-card/30 to-background overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,113 +81,119 @@ const MarketCategories = () => {
           </p>
         </motion.div>
 
-        {/* Responsive Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((category, index) => {
-            const Icon = category.icon;
-            
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 60, scale: 0.95, filter: "blur(8px)" }}
-                whileInView={{ 
-                  opacity: 1, 
-                  y: 0, 
-                  scale: 1, 
-                  filter: "blur(0px)" 
-                }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ 
-                  duration: 0.6, 
-                  ease: [0.16, 1, 0.3, 1],
-                  delay: index * 0.1 
-                }}
-                whileHover={{ 
-                  y: -12, 
-                  scale: 1.03,
-                  transition: { duration: 0.3, ease: "easeOut" }
-                }}
-                className="group"
-              >
-                <div className="category-card-premium rounded-3xl overflow-hidden h-[500px] flex flex-col hover:border-primary/30 transition-all duration-300 hover:shadow-glow-lg">
-                  {/* Image Area - 60% height */}
-                  <div className="relative h-[60%] overflow-hidden">
-                    {/* Hero Image */}
-                    <img
-                      src={category.image}
-                      alt={category.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+        {/* Cinematic Carousel */}
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[autoplayRef.current]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {categories.map((category, index) => {
+              const Icon = category.icon;
+              const isHovered = hoveredIndex === index;
+              
+              return (
+                <CarouselItem 
+                  key={index} 
+                  className="pl-4 md:basis-1/2 lg:basis-1/3"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 60, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ 
+                      duration: 0.6, 
+                      ease: [0.16, 1, 0.3, 1],
+                      delay: index * 0.1 
+                    }}
+                    animate={{
+                      scale: isHovered ? 1.05 : hoveredIndex !== null && hoveredIndex !== index ? 0.95 : 1,
+                      y: isHovered ? -8 : 0,
+                    }}
+                    className="group relative h-[600px] rounded-3xl overflow-hidden cursor-pointer"
+                  >
+                    {/* Ken Burns Background Image */}
+                    <motion.div
+                      className="absolute inset-0 w-full h-full"
+                      animate={{
+                        scale: isHovered ? 1.1 : 1,
+                      }}
+                      transition={{ duration: 8, ease: "linear" }}
+                    >
+                      <img
+                        src={category.image}
+                        alt={category.name}
+                        className="w-full h-full object-cover ken-burns-effect"
+                      />
+                    </motion.div>
+                    
+                    {/* Dark Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+                    
+                    {/* Glow Effect on Hover */}
+                    <motion.div 
+                      className="absolute inset-0 opacity-0 transition-opacity duration-300"
+                      animate={{
+                        opacity: isHovered ? 1 : 0,
+                      }}
+                      style={{
+                        boxShadow: "inset 0 0 60px rgba(45, 255, 167, 0.3)",
+                      }}
                     />
-                    
-                    {/* Image Overlay Gradient */}
-                    <div className="image-overlay-gradient absolute inset-0" />
-                    
-                    {/* Icon Badge - Bottom Left */}
-                    <motion.div 
-                      className="absolute bottom-4 left-4 z-10"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6, ease: "easeInOut" }}
-                    >
-                      <div className="glass-icon-badge w-14 h-14 rounded-xl flex items-center justify-center">
-                        <Icon className="w-7 h-7 text-primary" />
-                      </div>
-                    </motion.div>
-                    
-                    {/* Upload Placeholder - Center Overlay */}
-                    <motion.div 
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
-                      animate={{ 
-                        scale: [1, 1.05, 1],
-                        opacity: [0.5, 0.8, 0.5] 
-                      }}
-                      transition={{ 
-                        duration: 2, 
-                        repeat: Infinity, 
-                        ease: "easeInOut" 
-                      }}
-                    >
-                      <div className="upload-placeholder-dashed rounded-2xl px-6 py-4 flex flex-col items-center justify-center gap-2 min-w-[200px]">
-                        <Upload className="w-6 h-6 text-primary" />
-                        <span className="text-xs text-primary font-medium">
-                          {category.uploadPlaceholder}
-                        </span>
-                      </div>
-                    </motion.div>
-                    
-                    {/* Sample Output Thumbnail - Top Right */}
-                    <motion.div 
-                      className="absolute top-4 right-4 z-10"
+
+                    {/* Input Image Thumbnail (shows on hover) */}
+                    <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 + 0.5, duration: 0.4 }}
-                      whileHover={{ scale: 1.1 }}
+                      animate={{
+                        opacity: isHovered ? 1 : 0,
+                        scale: isHovered ? 1 : 0.8,
+                        y: isHovered ? 0 : 20,
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
                     >
-                      <div className="relative w-20 h-20 rounded-xl overflow-hidden border-2 border-primary/40 shadow-lg">
-                        <img
-                          src={category.sampleOutput}
-                          alt="AI Generated Sample"
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute bottom-0 left-0 right-0 bg-primary/90 backdrop-blur-sm px-1 py-0.5 flex items-center justify-center gap-1">
-                          <Sparkles className="w-2.5 h-2.5 text-background" />
-                          <span className="text-[8px] font-bold text-background">AI</span>
+                      <div className="relative">
+                        <div className="w-32 h-32 rounded-2xl overflow-hidden border-2 border-primary/60 shadow-2xl backdrop-blur-sm bg-background/20">
+                          <img
+                            src={category.inputImage}
+                            alt="Input"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="absolute -top-2 -right-2 bg-primary text-background text-xs font-bold px-2 py-1 rounded-full shadow-lg">
+                          Input
                         </div>
                       </div>
                     </motion.div>
-                  </div>
 
-                  {/* Content Area - 40% height */}
-                  <div className="h-[40%] p-6 flex flex-col justify-between bg-card/50 backdrop-blur-sm">
-                    {/* Title with inline icon */}
-                    <div>
-                      <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
-                        <Icon className="w-5 h-5" />
-                        {category.name}
-                      </h3>
+                    {/* Bottom Content Area */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                      {/* Icon and Title */}
+                      <div className="flex items-center gap-3 mb-2">
+                        <motion.div 
+                          className="w-12 h-12 rounded-xl bg-primary/20 backdrop-blur-sm border border-primary/40 flex items-center justify-center"
+                          whileHover={{ rotate: 360 }}
+                          transition={{ duration: 0.6 }}
+                        >
+                          <Icon className="w-6 h-6 text-primary" />
+                        </motion.div>
+                        <h3 className="text-2xl font-bold text-white">
+                          {category.name}
+                        </h3>
+                      </div>
 
-                      {/* Example Pills */}
-                      <div className="flex gap-2 mb-3 flex-wrap">
+                      {/* Description */}
+                      <p className="text-sm text-muted-foreground mb-4">
+                        {category.description}
+                      </p>
+
+                      {/* Category Tags */}
+                      <div className="flex gap-2 flex-wrap">
                         {category.examples.map((example, i) => (
                           <motion.span
                             key={i}
@@ -195,10 +203,10 @@ const MarketCategories = () => {
                             transition={{ delay: index * 0.1 + i * 0.05 + 0.2 }}
                             whileHover={{ 
                               backgroundColor: "hsl(var(--primary))",
-                              color: "hsl(var(--primary-foreground))",
+                              color: "hsl(var(--background))",
                               scale: 1.05
                             }}
-                            className="text-xs px-3 py-1 rounded-full border border-primary/50 text-primary cursor-pointer transition-all"
+                            className="text-xs px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary cursor-pointer transition-all backdrop-blur-sm"
                           >
                             {example}
                           </motion.span>
@@ -206,16 +214,14 @@ const MarketCategories = () => {
                       </div>
                     </div>
 
-                    {/* Use Case */}
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {category.useCase}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+                    {/* Card Border Glow */}
+                    <div className="absolute inset-0 rounded-3xl border border-primary/20 pointer-events-none" />
+                  </motion.div>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );
