@@ -1,61 +1,79 @@
 import { motion, useAnimation } from "framer-motion";
-import { Sofa, Shirt, Smartphone, Diamond, Coffee, Car } from "lucide-react";
-import chair1 from "@/assets/chair_lifestyle1.jpg";
-import chair3 from "@/assets/chair_lifestyle3.jpg";
-import asset1 from "@/assets/1.jpg";
+import { Sofa, Shirt, Smartphone, Diamond, Coffee, Car, Crown, CircleAlert, Footprints, FootprintsIcon } from "lucide-react";
+import chair_output from "@/assets/chair_output.png";
+import chair_input from "@/assets/chair_input.png";
+import shirt_output from "@/assets/shirt_output.png";
+import shirt_input from "@/assets/shirt_input.jpg";
+import jewelry_output from "@/assets/jewelry_output.png";
+import jewelry_input from "@/assets/jewelry_input.png";
+import artifact_output from "@/assets/artifact_output.png";
+import artifact_input from "@/assets/artifact_input.jpg";
+import food_output from "@/assets/food_output.png";
+import food_input from "@/assets/food_input.png";
+import footwear_output from "@/assets/footwear_output.jpeg";
+import footwear_input from "@/assets/footwear_input.png";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef, useState } from "react";
+import { useRef, useState, ElementType } from "react";
 
-const categories = [
+interface Category {
+  icon: ElementType;
+  name: string;
+  examples: string[];
+  description: string;
+  image: string;
+  inputImage: string;
+}
+
+const categories: Category[] = [
   {
     icon: Sofa,
     name: "Furniture & Home Decor",
     examples: ["Tables", "Chairs", "Lamps"],
     description: "Create lifestyle renders in any room",
-    image: chair1,
-    inputImage: chair1,
+    image: chair_output,
+    inputImage: chair_input,
   },
   {
     icon: Shirt,
     name: "Fashion & Apparel",
     examples: ["Clothing", "Shoes", "Bags"],
     description: "Model clothing without photoshoots",
-    image: chair3,
-    inputImage: chair3,
+    image: shirt_output,
+    inputImage: shirt_input,
   },
-  {
-    icon: Smartphone,
-    name: "Electronics & Gadgets",
-    examples: ["Phones", "Laptops", "Cameras"],
-    description: "Studio-quality tech photography",
-    image: asset1,
-    inputImage: asset1,
-  },
+{
+  icon:FootprintsIcon, 
+  name: "Footwear",
+  examples: ["Shoes", "Sandals", "Sneakers"],
+  description: "High-quality lifestyle footwear visuals",
+  image: footwear_output,
+  inputImage: footwear_input,
+},
   {
     icon: Diamond,
     name: "Jewelry & Accessories",
     examples: ["Rings", "Watches", "Necklaces"],
     description: "Macro detail shots & lifestyle scenes",
-    image: chair1,
-    inputImage: chair1,
+    image: jewelry_output,
+    inputImage: jewelry_input,
   },
   {
     icon: Coffee,
     name: "Food & Beverages",
     examples: ["Packaged", "Drinks", "Snacks"],
     description: "Appetizing product photography",
-    image: chair3,
-    inputImage: chair3,
+    image: food_output,
+    inputImage: food_input,
   },
   {
-    icon: Car,
-    name: "Automotive & Vehicles",
-    examples: ["Cars", "Bikes", "Parts"],
-    description: "Professional automotive photography",
-    image: asset1,
-    inputImage: asset1,
-  },
+  icon: Crown,
+  name: "Artifacts & Collectibles",
+  examples: ["Sculptures", "Antiques", "Handicrafts"],
+  description: "Showcase rare artifacts and collectibles in 3D.",
+  image: artifact_output,
+  inputImage: artifact_input,
+},
 ];
 
 const MarketCategories = () => {
