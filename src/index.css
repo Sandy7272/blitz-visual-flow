@@ -97,6 +97,15 @@ All colors MUST be HSL.
   
   html {
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    body {
+      font-size: 16px; /* Prevents zoom on iOS */
+      -webkit-tap-highlight-color: transparent;
+    }
   }
 }
 
@@ -124,6 +133,13 @@ All colors MUST be HSL.
   
   .transition-smooth {
     transition: var(--transition-smooth);
+  }
+  
+  /* Mobile-specific smooth transitions */
+  @media (max-width: 768px) {
+    .transition-smooth {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
   }
   
   .text-readable {

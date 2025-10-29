@@ -41,7 +41,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-20 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/5 to-background" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -49,12 +49,12 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 px-4">
             Loved by <span className="gradient-text">10,000+ Brands</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Real results from real businesses transforming their product content
           </p>
 
@@ -82,16 +82,16 @@ const Testimonials = () => {
           </motion.div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              initial={{ opacity: 0, x: -30, y: 20 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="glass-card rounded-3xl overflow-hidden hover:border-primary/30 transition-all group"
+              className="glass-card rounded-2xl md:rounded-3xl overflow-hidden hover:border-primary/30 transition-all group"
             >
               {/* Result image */}
               <div className="relative h-48 overflow-hidden">

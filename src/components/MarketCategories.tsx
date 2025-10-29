@@ -83,18 +83,18 @@ const MarketCategories = () => {
   );
 
   return (
-    <section className="py-32 bg-gradient-to-b from-background via-card/30 to-background overflow-hidden">
+    <section className="py-20 md:py-32 bg-gradient-to-b from-background via-card/30 to-background overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 px-4">
             Perfect for <span className="gradient-text">Every Industry</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Trusted by sellers across all product categories
           </p>
         </motion.div>
@@ -133,7 +133,8 @@ const MarketCategories = () => {
                       scale: isHovered ? 1.05 : hoveredIndex !== null && hoveredIndex !== index ? 0.95 : 1,
                       y: isHovered ? -8 : 0,
                     }}
-                    className="group relative h-[600px] rounded-3xl overflow-hidden cursor-pointer"
+                    whileTap={{ scale: 1.02 }}
+                    className="group relative h-[500px] md:h-[600px] rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer"
                   >
                     {/* Ken Burns Background Image */}
                     <motion.div

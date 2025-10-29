@@ -49,18 +49,18 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-32 bg-gradient-to-b from-background via-card/20 to-background">
+    <section className="py-20 md:py-32 bg-gradient-to-b from-background via-card/20 to-background">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 px-4">
             Frequently Asked <span className="gradient-text">Questions</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Everything you need to know about Blitz AI
           </p>
         </motion.div>
@@ -74,15 +74,15 @@ const FAQ = () => {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               >
                 <div className="glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all">
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="w-full p-6 flex items-start justify-between gap-4 text-left hover:bg-primary/5 transition-colors"
+                    className="w-full p-4 md:p-6 flex items-start justify-between gap-4 text-left hover:bg-primary/5 transition-colors"
                   >
-                    <span className="font-bold text-lg">{faq.question}</span>
+                    <span className="font-bold text-base md:text-lg">{faq.question}</span>
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                       {isOpen ? (
                         <Minus className="w-4 h-4 text-primary" />
@@ -101,7 +101,7 @@ const FAQ = () => {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6 text-muted-foreground">
+                    <div className="px-4 md:px-6 pb-4 md:pb-6 text-sm md:text-base text-muted-foreground">
                       {faq.answer}
                     </div>
                   </motion.div>
@@ -123,7 +123,7 @@ const FAQ = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 border-2 border-primary/60 text-primary px-8 py-3 rounded-xl font-semibold hover:bg-primary hover:text-black transition-all"
+            className="inline-flex items-center gap-2 border-2 border-primary/60 text-primary px-8 py-3 min-h-[48px] rounded-xl font-semibold hover:bg-primary hover:text-black transition-all"
           >
             Contact Support
           </motion.button>

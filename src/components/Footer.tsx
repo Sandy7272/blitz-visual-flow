@@ -16,11 +16,11 @@ const Footer = () => {
   };
 
   return (
-    <footer className="py-20 bg-card/30 border-t border-primary/10 relative overflow-hidden">
+    <footer className="py-12 md:py-20 bg-card/30 border-t border-primary/10 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/50 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 mb-12 md:mb-16">
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold mb-4 gradient-text">Blitz</h3>
             <p className="text-sm text-muted-foreground mb-6">
@@ -29,20 +29,20 @@ const Footer = () => {
 
             <div className="mb-6">
               <p className="text-sm font-semibold mb-3">Get product updates & tips</p>
-              <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
-                  className="flex-1 px-4 py-2 rounded-lg bg-background border border-border text-sm focus:outline-none focus:border-primary transition-colors"
+                  className="flex-1 px-4 py-3 rounded-lg bg-background border border-border text-sm focus:outline-none focus:border-primary transition-colors min-h-[44px]"
                   required
                 />
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   type="submit"
-                  className="px-6 py-2 rounded-lg bg-primary text-black font-semibold text-sm"
+                  className="px-6 py-3 rounded-lg bg-primary text-black font-semibold text-sm min-h-[44px]"
                 >
                   Subscribe
                 </motion.button>
@@ -90,11 +90,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-primary/10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <span className="text-sm text-muted-foreground">© 2024 Blitz AI. All rights reserved.</span>
-          <div className="flex gap-6 opacity-60">
+        <div className="pt-6 md:pt-8 border-t border-primary/10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+          <span className="text-xs md:text-sm text-muted-foreground text-center md:text-left">© 2024 Blitz AI. All rights reserved.</span>
+          <div className="flex gap-4 md:gap-6 opacity-60 flex-wrap justify-center">
             {[awsLogo, nvidiaLogo, googleLogo, samsungLogo].map((logo, i) => (
-              <img key={i} src={logo} alt="Partner" className="h-6 w-auto grayscale" />
+              <img key={i} src={logo} alt="Partner" className="h-5 md:h-6 w-auto grayscale" />
             ))}
           </div>
         </div>

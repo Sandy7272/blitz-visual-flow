@@ -3,7 +3,7 @@ import { Video, Cloud, Image, Box, Type, Download } from "lucide-react";
 
 const WorkflowVisualization = () => {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-20 md:py-32 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
@@ -15,25 +15,25 @@ const WorkflowVisualization = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 px-4">
             AI Pipeline <span className="gradient-text">in Action</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Watch how our advanced AI transforms your video into professional assets
           </p>
         </motion.div>
 
         {/* Pipeline Flow */}
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-7 gap-4 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-7 gap-4 items-center">
             {/* Step 1: Video Input */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="md:col-span-1"
             >
               <div className="glass-card rounded-2xl p-6 text-center hover:border-primary/30 transition-all group">
@@ -64,10 +64,10 @@ const WorkflowVisualization = () => {
 
             {/* Step 2: AI Processing */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="md:col-span-1"
             >
               <div className="glass-card rounded-2xl p-6 text-center hover:border-primary/30 transition-all group glow-effect">
@@ -105,10 +105,10 @@ const WorkflowVisualization = () => {
 
             {/* Step 3: Outputs */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="md:col-span-3"
             >
               <div className="grid grid-cols-2 gap-3">
@@ -164,8 +164,8 @@ const WorkflowVisualization = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-            className="grid md:grid-cols-3 gap-8 mt-16"
+            transition={{ delay: 0.4 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-16"
           >
             <div className="text-center">
               <div className="text-5xl font-bold gradient-text mb-2">2 min</div>

@@ -13,7 +13,7 @@ const partners = [
 
 const TrustedByBar = () => {
   return (
-    <section className="py-16 border-t border-b border-border/50 bg-card/30">
+    <section className="py-12 md:py-16 border-t border-b border-border/50 bg-card/30">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -27,7 +27,7 @@ const TrustedByBar = () => {
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 max-w-5xl mx-auto">
+        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 max-w-5xl mx-auto">
           {partners.map((partner, index) => (
             <motion.div
               key={partner.name}

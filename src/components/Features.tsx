@@ -74,25 +74,25 @@ const features: Feature[] = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-32 relative">
+    <section id="features" className="py-20 md:py-32 relative">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 px-4">
             Everything You Need to <span className="gradient-text">Sell More</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Professional product assets powered by advanced AI. No photographers, no studios, no hassle.
           </p>
         </motion.div>
 
         {/* Bento Grid */}
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[minmax(200px,auto)]">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[minmax(200px,auto)]">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               const colSpan = feature.size === "large" ? "md:col-span-2" : feature.size === "medium" ? "md:col-span-2" : "md:col-span-1";
@@ -101,12 +101,12 @@ const Features = () => {
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05, duration: 0.5 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: index * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className={`${colSpan} ${rowSpan} glass-card rounded-3xl p-8 hover:border-primary/30 transition-all group ${feature.link ? "" : "cursor-pointer"}`}
+                  className={`${colSpan} ${rowSpan} glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 hover:border-primary/30 transition-all group ${feature.link ? "" : "cursor-pointer"}`}
                 >
                   <a href={feature.link} target="_blank" rel="noopener noreferrer" className="w-full h-full flex flex-col">
                     <div className={`w-full h-full flex flex-col ${feature.size === "large" ? "justify-between" : "justify-start"}`}>

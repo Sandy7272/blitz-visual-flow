@@ -20,7 +20,7 @@ const Navigation = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-card border-b border-primary/10" : "bg-background/50 backdrop-blur-md"
+        isScrolled ? "glass-card border-b border-primary/10 backdrop-blur-xl" : "bg-background/50 backdrop-blur-md"
       }`}
     >
       <div className="container mx-auto px-6">
@@ -57,7 +57,7 @@ const Navigation = () => {
 
           <div className="hidden md:flex items-center gap-3">
             <Button variant="ghost" size="sm">Sign In</Button>
-            <Button size="sm" variant="outline">Get Started</Button>
+            <Button size="sm" variant="outline" className="glow-effect">Get Started</Button>
           </div>
 
           <Button
@@ -98,8 +98,8 @@ const Navigation = () => {
               );
             })}
             <div className="flex flex-col gap-2 pt-2">
-              <Button variant="ghost" size="sm" className="w-full">Sign In</Button>
-              <Button size="sm" variant="outline" className="w-full">Get Started</Button>
+              <Button variant="ghost" size="sm" className="w-full min-h-[44px]">Sign In</Button>
+              <Button size="sm" variant="outline" className="w-full min-h-[44px] glow-effect">Get Started</Button>
             </div>
           </motion.div>
         )}

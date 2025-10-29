@@ -56,18 +56,18 @@ const plans = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-32 relative">
+    <section id="pricing" className="py-20 md:py-32 relative">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 px-4">
             Simple, <span className="gradient-text">Transparent</span> Pricing
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 md:mb-8 px-4">
             Choose the perfect plan for your business. All plans include a 14-day free trial.
           </p>
 
@@ -85,16 +85,16 @@ const Pricing = () => {
           </motion.div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -10 }}
-              className={`relative glass-card rounded-3xl p-8 ${
+              className={`relative glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 ${
                 plan.popular ? "border-2 border-primary glow-effect-lg" : ""
               }`}
             >
@@ -117,7 +117,7 @@ const Pricing = () => {
               </div>
 
               <Button 
-                className={`w-full mb-8 ${plan.popular ? "glow-effect" : ""}`}
+                className={`w-full mb-8 min-h-[48px] ${plan.popular ? "glow-effect" : ""}`}
                 variant={plan.popular ? "default" : "outline"}
                 size="lg"
               >

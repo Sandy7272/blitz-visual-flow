@@ -9,7 +9,7 @@ import descriptionImage from "@/assets/description.png";
 
 const BeforeAfter = () => {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-20 md:py-32 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
       
@@ -18,12 +18,12 @@ const BeforeAfter = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 px-4">
             From <span className="gradient-text">Video</span> to Professional Assets
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             See the transformation power of AI. Upload a simple product video and get studio-quality photos, lifestyle scenes, and 3D models.
           </p>
         </motion.div>
@@ -32,17 +32,21 @@ const BeforeAfter = () => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="max-w-6xl mx-auto mb-20"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-6xl mx-auto mb-12 md:mb-20"
         >
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* Before */}
             <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.3, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -5 }}
               className="relative group"
             >
-              <div className="glass-card rounded-3xl p-8 border-2 border-destructive/30">
+              <div className="glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 border-2 border-destructive/30">
                 <div className="absolute -top-4 left-6">
                   <span className="bg-destructive text-destructive-foreground px-4 py-1 rounded-full text-sm font-semibold">
                     Before
@@ -75,10 +79,14 @@ const BeforeAfter = () => {
 
             {/* After */}
             <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.4, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -5 }}
               className="relative group"
             >
-              <div className="glass-card rounded-3xl p-8 border-2 border-primary/30 glow-effect">
+              <div className="glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 border-2 border-primary/30 glow-effect">
                 <div className="absolute -top-4 left-6">
                   <span className="bg-primary text-black px-4 py-1 rounded-full text-sm font-semibold">
                     After - AI Generated
@@ -124,8 +132,12 @@ const BeforeAfter = () => {
             <p className="text-muted-foreground">All generated automatically from your video</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -8, scale: 1.02 }}
               className="glass-card rounded-2xl p-6 hover:border-primary/30 transition-all"
             >
@@ -141,6 +153,10 @@ const BeforeAfter = () => {
             </motion.div>
 
             <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -8, scale: 1.02 }}
               className="glass-card rounded-2xl p-6 hover:border-primary/30 transition-all"
             >
@@ -157,6 +173,10 @@ const BeforeAfter = () => {
             </motion.div>
 
             <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -8, scale: 1.02 }}
               className="glass-card rounded-2xl p-6 hover:border-primary/30 transition-all"
             >
@@ -184,7 +204,7 @@ const BeforeAfter = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 bg-primary text-black px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-[0_0_20px_rgba(45,255,167,0.3)] transition-all"
+            className="inline-flex items-center gap-2 bg-primary text-black px-8 py-4 min-h-[56px] rounded-xl font-semibold text-lg hover:shadow-[0_0_20px_rgba(45,255,167,0.3)] transition-all"
           >
             Try It Free
             <ArrowRight className="w-5 h-5" />
