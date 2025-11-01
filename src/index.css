@@ -8,80 +8,47 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* MetashopAI Brand Colors */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
-
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 154 100% 59%;
-    --primary-foreground: 0 0% 4%;
-
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 70%;
-
-    --accent: 154 100% 59%;
-    --accent-foreground: 0 0% 4%;
-
-    --destructive: 4 90% 58%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 154 100% 59%;
-
+    /* Light futuristic theme */
+    --background: 0 0% 100%;
+    --foreground: 220 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+    --primary: 162 100% 59%;
+    --primary-foreground: 220 15% 8%;
+    --secondary: 220 15% 96%;
+    --secondary-foreground: 220 15% 15%;
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 260 60% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 162 100% 59%;
     --radius: 1rem;
     
-    /* Brand specific colors */
-    --neon-green: 154 100% 59%;
-    --dark-bg: 0 0% 4%;
-    --dark-card: 0 0% 7%;
-    --grey-light: 0 0% 70%;
-    --warning: 45 100% 51%;
+    /* Gradient colors */
+    --gradient-primary: linear-gradient(135deg, hsl(162 100% 59%) 0%, hsl(195 100% 65%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(260 60% 65%) 0%, hsl(280 60% 70%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(162 100% 98%) 100%);
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--neon-green)), hsl(154 100% 70%));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(0 0% 6%));
+    /* Glassmorphism */
+    --glass-bg: hsla(0, 0%, 100%, 0.7);
+    --glass-border: hsla(162, 100%, 59%, 0.2);
+    --glass-shadow: 0 8px 32px 0 hsla(162, 100%, 59%, 0.15);
     
-    /* Glassmorphism - more subtle */
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(45, 255, 167, 0.1);
-    
-    /* Shadows - more subtle */
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.15);
-    --shadow-glow-lg: 0 0 50px hsl(var(--primary) / 0.2);
-    --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.3);
-    
-    /* Animation */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
+    /* Sidebar colors */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 15% 15%;
+    --sidebar-primary: 162 100% 59%;
+    --sidebar-primary-foreground: 220 15% 8%;
+    --sidebar-accent: 220 15% 96%;
+    --sidebar-accent-foreground: 220 15% 15%;
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    /* Dark mode uses the same dark theme */
+    --sidebar-ring: 162 100% 59%;
   }
 }
 
@@ -110,10 +77,49 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  /* Glassmorphism card */
   .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+  
+  /* Floating blobs background */
+  .floating-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .floating-blob-1 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, hsl(162 100% 59%), hsl(195 100% 65%));
+    top: -10%;
+    right: -5%;
+    animation-delay: 0s;
+  }
+  
+  .floating-blob-2 {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, hsl(260 60% 65%), hsl(280 60% 70%));
+    bottom: 10%;
+    left: -5%;
+    animation-delay: 2s;
+  }
+  
+  .floating-blob-3 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, hsl(195 100% 65%), hsl(162 100% 75%));
+    top: 50%;
+    left: 50%;
+    animation-delay: 4s;
   }
   
   .gradient-text {
@@ -123,16 +129,42 @@ All colors MUST be HSL.
     background-clip: text;
   }
   
+  /* Glow effect */
   .glow-effect {
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 0 20px hsla(162, 100%, 59%, 0.4);
+    transition: box-shadow 0.3s ease;
   }
   
-  .glow-effect-lg {
-    box-shadow: var(--shadow-glow-lg);
+  .glow-effect:hover {
+    box-shadow: 0 0 30px hsla(162, 100%, 59%, 0.6);
   }
   
-  .transition-smooth {
-    transition: var(--transition-smooth);
+  /* Pipeline visual */
+  .pipeline-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .pipeline-arrow {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, hsl(162 100% 59%), transparent);
+    position: relative;
+  }
+  
+  .pipeline-arrow::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid hsl(162 100% 59%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
   }
   
   /* Mobile-specific smooth transitions */
@@ -140,13 +172,15 @@ All colors MUST be HSL.
     .transition-smooth {
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    
+    .floating-blob {
+      width: 250px !important;
+      height: 250px !important;
+      opacity: 0.2;
+    }
   }
   
-  .text-readable {
-    color: hsl(0 0% 80%);
-  }
-  
-  /* Premium Category Cards */
+  /* Category Cards (for MarketCategories section - unchanged) */
   .category-card-premium {
     background: linear-gradient(
       135deg,

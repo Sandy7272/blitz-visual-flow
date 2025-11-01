@@ -1,102 +1,53 @@
 import { motion } from "framer-motion";
-import type { ComponentType, SVGProps } from "react";
-import { Camera, Sparkles, Box, Type, Zap, Code, Palette, Cloud } from "lucide-react";
-import productLifestyleImage from "@/assets/product_lifestyle_chair.png";
-interface Feature {
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
-  title: string;
-  description: string;
-  size: string;
-  gradient: string;
-  image?: string;
-  link?: string;
-}
+import { Zap, Bot, Globe } from "lucide-react";
 
-const features: Feature[] = [
+const features = [
   {
-    icon: Camera,
-    title: "AI Studio Photography",
-    description: "Perfect lighting & angles every time",
-    size: "large",
-    gradient: "from-primary/10 to-primary/5",
+    icon: Bot,
+    title: "Automated 3D Conversion",
+    description: "Turn product videos into high-quality 3D assets using advanced AI.",
+    gradient: "from-primary/20 via-primary/10 to-transparent",
   },
-    {
-    icon: Box,
-    title: "3D Model Export",
-    description: "Interactive models for AR & 360°",
-    size: "medium",
-    gradient: "from-primary/10 to-primary/5",
-  },
-   {
+  {
     icon: Zap,
-    title: "Batch Processing",
-    description: "100+ products per hour",
-    size: "small",
-    gradient: "from-primary/10 to-primary/5",
+    title: "Lightning Fast",
+    description: "Get 3D outputs within minutes using our AI pipeline.",
+    gradient: "from-accent/20 via-accent/10 to-transparent",
   },
   {
-    icon: Type,
-    title: "SEO Product Descriptions",
-    description: "Optimized for search & conversions",
-    size: "small",
-    gradient: "from-accent/10 to-accent/5",
+    icon: Globe,
+    title: "Seamless Integration",
+    description: "Works with all major formats and platforms.",
+    gradient: "from-primary/20 via-primary/10 to-transparent",
   },
-  {
-    icon: Sparkles,
-    title: "Lifestyle Scene Generation",
-    description: "Place your product in any environment",
-    size: "large",
-    gradient: "from-accent/10 to-accent/5",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud-Powered Speed",
-    description: "Results in under 2 minutes",
-    size: "small",
-    gradient: "from-accent/10 to-accent/5",
-  },
-   {
-    icon: Palette,
-    title: "Custom Branding",
-    description: "Match your brand aesthetic",
-    size: "small",
-    gradient: "from-accent/10 to-accent/5",
-  },
-  {
-    icon: Code,
-    title: "Multi-Platform Export",
-    description: "One-click to 20+ platforms",
-    size: "medium",
-    gradient: "from-primary/10 to-primary/5",
-  },
-
 ];
 
 const Features = () => {
   return (
-    <section id="features" className="py-20 md:py-32 relative">
+    <section id="features" className="py-20 md:py-32 relative bg-gradient-to-b from-background to-secondary/30">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12 md:mb-20"
+          className="text-center mb-16 md:mb-24"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 px-4">
-            Everything You Need to <span className="gradient-text">Sell More</span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            Everything You Need to{" "}
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Sell More
+            </span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Professional product assets powered by advanced AI. No photographers, no studios, no hassle.
           </p>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[minmax(200px,auto)]">
+        {/* 3-column grid */}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
-              const colSpan = feature.size === "large" ? "md:col-span-2" : feature.size === "medium" ? "md:col-span-2" : "md:col-span-1";
-              const rowSpan = feature.size === "large" ? "md:row-span-2" : "md:row-span-1";
 
               return (
                 <motion.div
@@ -104,37 +55,34 @@ const Features = () => {
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: index * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  className={`${colSpan} ${rowSpan} glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 hover:border-primary/30 transition-all group ${feature.link ? "" : "cursor-pointer"}`}
+                  transition={{ delay: index * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ y: -12, scale: 1.05 }}
+                  className="glass-card rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 group"
                 >
-                  <a href={feature.link} target="_blank" rel="noopener noreferrer" className="w-full h-full flex flex-col">
-                    <div className={`w-full h-full flex flex-col ${feature.size === "large" ? "justify-between" : "justify-start"}`}>
-                      {feature.image && (
-                        <img src={feature.image} alt={feature.title} className="w-full h-56 object-cover rounded-xl mb-4" />
-                      )}
-                      <div>
-                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                          <Icon className="w-7 h-7 text-primary" />
-                        </div>
-                        
-                        <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                          {feature.title}
-                        </h3>
-                        <p className="text-muted-foreground">
-                          {feature.description}
-                        </p>
-                      </div>
-
-                      {feature.size === "large" && (
-                        <div className="mt-8 pt-6 border-t border-border/50">
-                          <span className="text-sm text-primary font-semibold group-hover:underline">
-                            Learn more →
-                          </span>
-                        </div>
-                      )}
+                  {/* Icon with gradient background */}
+                  <div className="relative mb-6">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                    <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="w-8 h-8 text-primary" />
                     </div>
-                  </a>
+                  </div>
+
+                  {/* Text content */}
+                  <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+
+                  {/* Hover indicator */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    whileHover={{ opacity: 1, x: 0 }}
+                    className="mt-6 text-sm font-semibold text-primary flex items-center gap-2"
+                  >
+                    Learn more →
+                  </motion.div>
                 </motion.div>
               );
             })}

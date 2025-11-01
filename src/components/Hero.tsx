@@ -1,104 +1,188 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Play } from "lucide-react";
-import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-mobile-recording.jpg";
+import { Video, Cloud, Box, ArrowRight, Upload } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Simplified Background with Gradient Mesh */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
-      </div>
-
-      {/* Floating Orbs - Light parallax on mobile */}
-      <motion.div
-        animate={{
-          y: [0, -30, 0],
-          opacity: [0.08, 0.15, 0.08],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-primary/10 rounded-full blur-3xl"
-      />
-      <motion.div
-        animate={{
-          y: [0, 30, 0],
-          opacity: [0.08, 0.15, 0.08],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute bottom-1/4 right-1/4 w-64 md:w-96 h-64 md:h-96 bg-primary/10 rounded-full blur-3xl"
-      />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-primary/5">
+      {/* Floating background blobs */}
+      <div className="floating-blob floating-blob-1" />
+      <div className="floating-blob floating-blob-2" />
+      <div className="floating-blob floating-blob-3" />
 
       {/* Content */}
-      <div className="container mx-auto px-6 pt-32 pb-12 md:pb-0 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-5xl mx-auto"
-        >
-          <motion.h1 
-            className="text-4xl md:text-7xl font-display font-black mb-6 leading-tight drop-shadow-sm px-4 md:px-0"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      <div className="container mx-auto px-6 py-32 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left: Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center lg:text-left"
           >
-            One 30-Second Video.
-            <br />
-            <span className="gradient-text">
-              A Complete Product Listing.
-            </span>
-          </motion.h1>
+            <motion.h1 
+              className="text-5xl md:text-7xl lg:text-8xl font-display font-black mb-6 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              AI that converts any video into a{" "}
+              <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+                3D product
+              </span>{" "}
+              — instantly.
+            </motion.h1>
 
-          <motion.p 
-            className="text-lg md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto font-normal px-4 md:px-0"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            Transform your product video into studio photos, lifestyle renders, 
-            3D models, and SEO-ready descriptions — all powered by AI in seconds.
-          </motion.p>
+            <motion.p 
+              className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto lg:mx-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+            >
+              Upload a product video. Get studio photos, 3D models, lifestyle scenes, and SEO descriptions in under 2 minutes.
+            </motion.p>
 
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 px-4 md:px-0"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Button size="lg" className="text-lg px-10 min-h-[56px] w-full sm:w-auto glow-effect group">
-              Start Free Photoshoot
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-10 min-h-[56px] w-full sm:w-auto">
-              <Play className="mr-2 h-5 w-5" />
-              Watch Demo
-            </Button>
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+            >
+              <Button size="lg" className="text-lg px-10 min-h-[56px] w-full sm:w-auto glow-effect group">
+                Try Demo
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button size="lg" variant="outline" className="text-lg px-10 min-h-[56px] w-full sm:w-auto">
+                Contact Us
+              </Button>
+            </motion.div>
+
+            {/* Trust indicators */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-muted-foreground"
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span>2 min processing</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span>4K output</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span>95% time saved</span>
+              </div>
+            </motion.div>
           </motion.div>
 
-        </motion.div>
-      </div>
+          {/* Right: Interactive Pipeline Visual */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+            className="relative"
+          >
+            <div className="flex flex-col items-center gap-8 lg:gap-12">
+              {/* Pipeline Step 1: Upload */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="pipeline-step w-full"
+              >
+                <div className="glass-card rounded-3xl p-8 w-full max-w-md hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
+                      <Video className="w-8 h-8 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold">Upload Video</h3>
+                      <p className="text-sm text-muted-foreground">30-second product video</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-      >
-        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center pt-2">
-          <div className="w-1 h-2 bg-primary rounded-full" />
+              {/* Arrow */}
+              <motion.div
+                animate={{ opacity: [0.3, 1, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="flex items-center justify-center"
+              >
+                <div className="w-1 h-12 bg-gradient-to-b from-primary to-transparent" />
+              </motion.div>
+
+              {/* Pipeline Step 2: AI Processing */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+                className="pipeline-step w-full"
+              >
+                <div className="glass-card rounded-3xl p-8 w-full max-w-md glow-effect">
+                  <div className="flex items-center gap-4">
+                    <motion.div
+                      animate={{ 
+                        rotate: [0, 360],
+                        scale: [1, 1.1, 1]
+                      }}
+                      transition={{ 
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "linear"
+                      }}
+                      className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center"
+                    >
+                      <Cloud className="w-8 h-8 text-primary" />
+                    </motion.div>
+                    <div>
+                      <h3 className="text-lg font-bold">AI Processing</h3>
+                      <p className="text-sm text-muted-foreground">Advanced cloud pipeline</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Arrow */}
+              <motion.div
+                animate={{ opacity: [0.3, 1, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="flex items-center justify-center"
+              >
+                <div className="w-1 h-12 bg-gradient-to-b from-primary to-transparent" />
+              </motion.div>
+
+              {/* Pipeline Step 3: 3D Output */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.9, duration: 0.6 }}
+                className="pipeline-step w-full"
+              >
+                <div className="glass-card rounded-3xl p-6 w-full max-w-md hover:scale-105 transition-transform duration-300">
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    <div className="aspect-square rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                      <Box className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="aspect-square rounded-xl bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center">
+                      <Upload className="w-6 h-6 text-accent" />
+                    </div>
+                    <div className="aspect-square rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center col-span-2">
+                      <span className="text-xs font-semibold text-muted-foreground">SEO Description</span>
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold text-center">Complete 3D Asset Pack</h3>
+                  <p className="text-sm text-muted-foreground text-center">Photos, models, descriptions</p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

@@ -56,8 +56,8 @@ const Navigation = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="sm">Sign In</Button>
-            <Button size="sm" variant="outline" className="glow-effect">Get Started</Button>
+            <Button size="sm" className="min-h-[44px] glow-effect">Try Demo</Button>
+            <Button size="sm" variant="outline" className="min-h-[44px]">Contact Us</Button>
           </div>
 
           <Button
@@ -98,8 +98,8 @@ const Navigation = () => {
               );
             })}
             <div className="flex flex-col gap-2 pt-2">
-              <Button variant="ghost" size="sm" className="w-full min-h-[44px]">Sign In</Button>
-              <Button size="sm" variant="outline" className="w-full min-h-[44px] glow-effect">Get Started</Button>
+              <Button size="sm" className="w-full min-h-[44px] glow-effect">Try Demo</Button>
+              <Button size="sm" variant="outline" className="w-full min-h-[44px]">Contact Us</Button>
             </div>
           </motion.div>
         )}
