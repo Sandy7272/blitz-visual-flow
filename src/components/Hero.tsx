@@ -24,20 +24,19 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.8 }}
             >
-              Convert Any Video Into{" "}
+              One Video.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                3D
-              </span>{" "}
-              — Instantly.
+                Infinite Creative Outputs.
+              </span>
             </motion.h1>
 
             <motion.p 
-              className="text-lg md:text-xl text-muted-foreground mb-12 leading-relaxed"
+              className="text-lg md:text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              AI pipeline that turns your product videos into interactive 3D models in seconds.
+              Convert any product video into 3D models, studio-quality photos, and lifestyle visuals — everything your eCommerce listings need.
             </motion.p>
 
             <motion.div 
@@ -63,71 +62,116 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="relative flex items-center justify-center"
           >
-            <div className="flex items-center gap-6 md:gap-8">
-              {/* Step 1: Video Input */}
+            <div className="flex flex-col gap-8">
+              {/* Input: Video */}
               <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="flex flex-col items-center gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="flex items-center gap-4"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl glass-card flex items-center justify-center group hover:scale-110 transition-transform duration-300">
-                  <Video className="w-10 h-10 md:w-12 md:h-12 text-primary" />
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-16 h-16 rounded-xl glass-card flex items-center justify-center group hover:scale-110 transition-transform duration-300"
+                >
+                  <Video className="w-8 h-8 text-primary" />
+                </motion.div>
+                <div>
+                  <span className="text-sm font-semibold text-foreground block">Video Input</span>
+                  <span className="text-xs text-muted-foreground">Upload product video</span>
                 </div>
-                <span className="text-xs md:text-sm font-semibold text-muted-foreground">Video</span>
               </motion.div>
 
-              {/* Arrow 1 */}
+              {/* Arrow Down */}
               <motion.div
-                animate={{ opacity: [0.3, 1, 0.3], x: [0, 4, 0] }}
+                animate={{ opacity: [0.3, 1, 0.3], y: [0, 4, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="hidden sm:block"
+                className="flex justify-center"
               >
-                <svg width="40" height="2" viewBox="0 0 40 2" fill="none" className="text-primary">
-                  <path d="M0 1H40" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4"/>
-                  <path d="M35 0L40 1L35 2" fill="currentColor"/>
+                <svg width="2" height="40" viewBox="0 0 2 40" fill="none" className="text-primary">
+                  <path d="M1 0V40" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4"/>
+                  <path d="M0 35L1 40L2 35" fill="currentColor"/>
                 </svg>
               </motion.div>
 
-              {/* Step 2: AI Processing */}
+              {/* AI Processing */}
               <motion.div
-                animate={{ 
-                  y: [0, -12, 0],
-                  rotate: [0, 360]
-                }}
-                transition={{ 
-                  y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
-                  rotate: { duration: 8, repeat: Infinity, ease: "linear" }
-                }}
-                className="flex flex-col items-center gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="flex items-center gap-4"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl glass-card flex items-center justify-center glow-effect">
-                  <Cloud className="w-10 h-10 md:w-12 md:h-12 text-primary" />
+                <motion.div
+                  animate={{ 
+                    y: [0, -12, 0],
+                    rotate: [0, 360]
+                  }}
+                  transition={{ 
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                    rotate: { duration: 8, repeat: Infinity, ease: "linear" }
+                  }}
+                  className="w-16 h-16 rounded-xl glass-card flex items-center justify-center glow-effect"
+                >
+                  <Cloud className="w-8 h-8 text-primary" />
+                </motion.div>
+                <div>
+                  <span className="text-sm font-semibold text-foreground block">AI Processing</span>
+                  <span className="text-xs text-muted-foreground">Intelligent conversion</span>
                 </div>
-                <span className="text-xs md:text-sm font-semibold text-muted-foreground">AI</span>
               </motion.div>
 
-              {/* Arrow 2 */}
+              {/* Arrow Down */}
               <motion.div
-                animate={{ opacity: [0.3, 1, 0.3], x: [0, 4, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="hidden sm:block"
+                animate={{ opacity: [0.3, 1, 0.3], y: [0, 4, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="flex justify-center"
               >
-                <svg width="40" height="2" viewBox="0 0 40 2" fill="none" className="text-primary">
-                  <path d="M0 1H40" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4"/>
-                  <path d="M35 0L40 1L35 2" fill="currentColor"/>
+                <svg width="2" height="40" viewBox="0 0 2 40" fill="none" className="text-primary">
+                  <path d="M1 0V40" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4"/>
+                  <path d="M0 35L1 40L2 35" fill="currentColor"/>
                 </svg>
               </motion.div>
 
-              {/* Step 3: 3D Output */}
+              {/* Outputs: 3D, Studio, Lifestyle */}
               <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="flex flex-col items-center gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="flex gap-4"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl glass-card flex items-center justify-center group hover:scale-110 transition-transform duration-300">
-                  <Box className="w-10 h-10 md:w-12 md:h-12 text-primary" />
-                </div>
-                <span className="text-xs md:text-sm font-semibold text-muted-foreground">3D</span>
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <div className="w-14 h-14 rounded-lg glass-card flex items-center justify-center group hover:scale-110 transition-transform duration-300">
+                    <Box className="w-7 h-7 text-primary" />
+                  </div>
+                  <span className="text-xs font-medium text-muted-foreground">3D Model</span>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <div className="w-14 h-14 rounded-lg glass-card flex items-center justify-center group hover:scale-110 transition-transform duration-300">
+                    <ArrowRight className="w-7 h-7 text-primary rotate-90" />
+                  </div>
+                  <span className="text-xs font-medium text-muted-foreground">Studio Photo</span>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <div className="w-14 h-14 rounded-lg glass-card flex items-center justify-center group hover:scale-110 transition-transform duration-300">
+                    <Video className="w-7 h-7 text-primary" />
+                  </div>
+                  <span className="text-xs font-medium text-muted-foreground">Lifestyle Visual</span>
+                </motion.div>
               </motion.div>
             </div>
           </motion.div>
