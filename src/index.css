@@ -131,12 +131,17 @@ All colors MUST be HSL.
   
   /* Glow effect */
   .glow-effect {
-    box-shadow: 0 0 20px hsla(162, 100%, 59%, 0.4);
+    box-shadow: 0 0 30px hsla(162, 100%, 59%, 0.5);
     transition: box-shadow 0.3s ease;
   }
   
   .glow-effect:hover {
-    box-shadow: 0 0 30px hsla(162, 100%, 59%, 0.6);
+    box-shadow: 0 0 50px hsla(162, 100%, 59%, 0.7);
+  }
+  
+  /* Animated gradient background */
+  .animate-gradient {
+    background-size: 200% 200%;
   }
   
   /* Pipeline visual */
