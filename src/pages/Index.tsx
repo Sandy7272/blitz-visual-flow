@@ -4,6 +4,7 @@ import TrustedByBar from "@/components/TrustedByBar";
 import BeforeAfter from "@/components/BeforeAfter";
 import Features from "@/components/Features";
 import MarketCategories from "@/components/MarketCategories";
+import WorkflowVisualization from "@/components/WorkflowVisualization";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
@@ -19,6 +20,7 @@ const Index = () => {
       <BeforeAfter />
       <Features />
       <MarketCategories />
+      <WorkflowVisualization />
       <Pricing />
       <Testimonials />
       <FAQ />

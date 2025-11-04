@@ -1,120 +1,101 @@
 import { motion } from "framer-motion";
-import { Linkedin, Twitter, Youtube, Mail, MapPin } from "lucide-react";
+import { Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
+import { useState } from "react";
+import awsLogo from "@/assets/partnerlogos/aws-logo.svg";
+import googleLogo from "@/assets/partnerlogos/google-startups-logo.svg";
+import nvidiaLogo from "@/assets/partnerlogos/nvidia-logo.svg";
+import samsungLogo from "@/assets/partnerlogos/samsung-logo.svg";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Newsletter signup:", email);
+    setEmail("");
+  };
+
   return (
-    <footer className="py-16 md:py-20 bg-secondary/30 border-t border-border relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/50 pointer-events-none" />
+    <footer className="py-12 md:py-20 bg-card/30 border-t border-primary/10 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/50 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Main footer grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 mb-12">
-          {/* Column 1: Product */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 mb-12 md:mb-16">
+          <div className="md:col-span-2">
+            <h3 className="text-2xl font-bold mb-4 gradient-text">Blitz</h3>
+            <p className="text-sm text-muted-foreground mb-6">
+              AI-powered product content creation for modern e-commerce.
+            </p>
+
+            <div className="mb-6">
+              <p className="text-sm font-semibold mb-3">Get product updates & tips</p>
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  className="flex-1 px-4 py-3 rounded-lg bg-background border border-border text-sm focus:outline-none focus:border-primary transition-colors min-h-[44px]"
+                  required
+                />
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  type="submit"
+                  className="px-6 py-3 rounded-lg bg-primary text-black font-semibold text-sm min-h-[44px]"
+                >
+                  Subscribe
+                </motion.button>
+              </form>
+            </div>
+
+            <div className="flex gap-3">
+              {[Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
+                <motion.a
+                  key={i}
+                  whileHover={{ y: -3, scale: 1.1 }}
+                  href="#"
+                  className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center hover:bg-primary/20 border border-primary/20 transition-all"
+                >
+                  <Icon className="w-5 h-5 text-primary" />
+                </motion.a>
+              ))}
+            </div>
+          </div>
+
           <div>
-            <h4 className="text-lg font-bold mb-6">Product</h4>
-            <ul className="space-y-4 text-sm text-muted-foreground">
-              <li>
-                <a href="#features" className="hover:text-primary transition-colors">
-                  Features
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="hover:text-primary transition-colors">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  API
-                </a>
-              </li>
+            <h4 className="font-semibold mb-4">Product</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><a href="#features" className="hover:text-primary transition-colors">Features</a></li>
+              <li><a href="#pricing" className="hover:text-primary transition-colors">Pricing</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">API</a></li>
             </ul>
           </div>
 
-          {/* Column 2: Social */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Social</h4>
-            <div className="flex flex-col gap-4">
-              <motion.a
-                whileHover={{ x: 4 }}
-                href="#"
-                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Linkedin className="w-5 h-5 text-primary" />
-                </div>
-                <span>LinkedIn</span>
-              </motion.a>
-              <motion.a
-                whileHover={{ x: 4 }}
-                href="#"
-                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Twitter className="w-5 h-5 text-primary" />
-                </div>
-                <span>Twitter</span>
-              </motion.a>
-              <motion.a
-                whileHover={{ x: 4 }}
-                href="#"
-                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Youtube className="w-5 h-5 text-primary" />
-                </div>
-                <span>YouTube</span>
-              </motion.a>
-            </div>
+            <h4 className="font-semibold mb-4">Company</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-primary transition-colors">About</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
+            </ul>
           </div>
 
-          {/* Column 3: Contact */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Contact</h4>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3 text-sm text-muted-foreground">
-                <Mail className="w-5 h-5 text-primary mt-0.5" />
-                <div>
-                  <p className="font-semibold text-foreground mb-1">Email</p>
-                  <a href="mailto:hello@blitz.ai" className="hover:text-primary transition-colors">
-                    hello@blitz.ai
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 text-sm text-muted-foreground">
-                <MapPin className="w-5 h-5 text-primary mt-0.5" />
-                <div>
-                  <p className="font-semibold text-foreground mb-1">Office</p>
-                  <p>San Francisco, CA</p>
-                </div>
-              </div>
-            </div>
+            <h4 className="font-semibold mb-4">Legal</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-primary transition-colors">Privacy</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Terms</a></li>
+            </ul>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-border mb-8" />
-
-        {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Blitz
-            </span>
-          </div>
-          <span className="text-center">© 2024 Blitz AI. All rights reserved.</span>
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-primary transition-colors">
-              Privacy
-            </a>
-            <a href="#" className="hover:text-primary transition-colors">
-              Terms
-            </a>
+        <div className="pt-6 md:pt-8 border-t border-primary/10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+          <span className="text-xs md:text-sm text-muted-foreground text-center md:text-left">© 2024 Blitz AI. All rights reserved.</span>
+          <div className="flex gap-4 md:gap-6 opacity-60 flex-wrap justify-center">
+            {[awsLogo, nvidiaLogo, googleLogo, samsungLogo].map((logo, i) => (
+              <img key={i} src={logo} alt="Partner" className="h-5 md:h-6 w-auto grayscale" />
+            ))}
           </div>
         </div>
       </div>
