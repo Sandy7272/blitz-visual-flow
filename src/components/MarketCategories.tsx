@@ -213,7 +213,7 @@ const MarketCategories = () => {
 
                       {/* Category Tags */}
                       <div className="flex gap-2 flex-wrap">
-                        {category.examples.map((example, i) => (
+                      {category.examples.map((example, i) => (
                           <motion.span
                             key={i}
                             initial={{ opacity: 0, y: 10 }}
@@ -221,11 +221,12 @@ const MarketCategories = () => {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 + i * 0.05 + 0.2 }}
                             whileHover={{ 
-                              backgroundColor: "hsl(var(--primary))",
-                              color: "hsl(var(--background))",
-                              scale: 1.05
+                              backgroundColor: "hsl(var(--muted))",
+                              color: "hsl(var(--foreground))",
+                              scale: 1.05,
+                              borderColor: "hsl(var(--border))"
                             }}
-                            className="text-xs px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary cursor-pointer transition-all backdrop-blur-sm"
+                            className="text-xs px-3 py-1.5 rounded-full bg-muted/20 border border-muted/40 text-muted-foreground cursor-pointer transition-all backdrop-blur-sm"
                           >
                             {example}
                           </motion.span>

@@ -114,9 +114,13 @@ const Features = () => {
                         <img src={feature.image} alt={feature.title} className="w-full h-56 object-cover rounded-xl mb-4" />
                       )}
                       <div>
-                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                        <motion.div 
+                          className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6`}
+                          whileHover={{ scale: 1.1, rotate: 10 }}
+                          transition={{ duration: 0.3 }}
+                        >
                           <Icon className="w-7 h-7 text-primary" />
-                        </div>
+                        </motion.div>
                         
                         <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
                           {feature.title}
